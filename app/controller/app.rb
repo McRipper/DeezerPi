@@ -26,7 +26,7 @@ module App
         # The following line just tests to see that it's working.
         #   If you've logged in your first user, '/' should load: "1 ... 1";
         #   You can then remove the following line, start using view templates, etc.
-        current_user.id.to_s + " ... " + session[:user_id].to_s 
+        current_user.id.to_s + " ... " + session[:user_id].to_s
       else
         '<a href="/auth/facebook">sign in with Facebook</a>'
       end
