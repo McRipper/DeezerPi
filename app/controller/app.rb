@@ -18,7 +18,7 @@ module App
     use Rack::Session::Cookie
 
     use OmniAuth::Builder do
-      provider :facebook, '290594154312564','a26bcf9d7e254db82566f31c9d72c94e'
+      provider :facebook, '203597956466980','c85ffc4e033df8623470014c7a3be1d0'
     end
 
     get '/' do
@@ -36,7 +36,7 @@ module App
       auth = request.env["omniauth.auth"]
       user = User.first_or_create({ :uid => auth["uid"]}, {
         :uid => auth["uid"],
-        :nickname => auth["info"]["nickname"], 
+        :nickname => auth["info"]["nickname"],
         :name => auth["info"]["name"],
         :created_at => Time.now })
       session[:user_id] = user.id
