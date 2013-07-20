@@ -133,7 +133,11 @@ h2,h3 {
 		font-size: 15px;
 		border-bottom: 1px solid #838383;
 	}
-
+  a {
+    color: #444;
+    text-decoration: none;
+    display:block;
+  }
 	&.active {
 		top:0;
 	}
