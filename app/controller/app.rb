@@ -50,6 +50,8 @@ module App
     end
 
 
+    # Facebook
+    #
     get '/songs' do
 
       user = current_user
@@ -64,10 +66,14 @@ module App
         Artist.first_or_create({ name: d["name"], user_id: user.id})
       end
 
-      redirect "/"
+      return results["data"].size
+
+      #redirect "/"
 
     end
 
+    # Deezer
+    #
     get '/play' do
 
       redirect "/" if current_user.nil?
