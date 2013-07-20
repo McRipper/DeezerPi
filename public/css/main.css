@@ -1,0 +1,182 @@
+/* line 3, ../scss/main.scss */
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #7b0000;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 12, ../scss/main.scss */
+p {
+  margin: 0;
+}
+
+/* line 15, ../scss/main.scss */
+h2, h3 {
+  margin: 0;
+}
+
+/* line 19, ../scss/main.scss */
+#layout {
+  height: 200%;
+  width: 100%;
+  background: url(../img/bg.jpg) center top no-repeat;
+  background-size: 100%;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+/* line 29, ../scss/main.scss */
+.login, .logged {
+  width: 100%;
+  height: 100%;
+}
+/* line 32, ../scss/main.scss */
+.login .logo, .logged .logo {
+  position: absolute;
+  display: block;
+  width: 215px;
+  top: 60px;
+  left: 50%;
+  margin-left: -107px;
+  -webkit-transition: all 500ms ease-in-out;
+  -webkit-transition-delay: 800ms;
+  -moz-transition: all 500ms ease-in-out 800ms;
+  -o-transition: all 500ms ease-in-out 800ms;
+  transition: all 500ms ease-in-out 800ms;
+  -webkit-transform: scale(10, 10);
+  -moz-transform: scale(10, 10);
+  -ms-transform: scale(10, 10);
+  -o-transform: scale(10, 10);
+  transform: scale(10, 10);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+/* line 45, ../scss/main.scss */
+.login .bottom, .logged .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -webkit-transition-delay: 800ms;
+  -moz-transition: opacity 1s ease-in-out 800ms;
+  -o-transition: opacity 1s ease-in-out 800ms;
+  transition: opacity 1s ease-in-out 800ms;
+}
+/* line 52, ../scss/main.scss */
+.login .bottom p, .logged .bottom p {
+  font-size: 15px;
+  line-height: 18px;
+  color: #fff;
+}
+/* line 58, ../scss/main.scss */
+.login .bottom .fb-btn img, .logged .bottom .fb-btn img {
+  display: block;
+  max-width: 245px;
+  width: 80%;
+  margin: 25px auto;
+}
+/* line 69, ../scss/main.scss */
+.login.active .logo, .active.logged .logo {
+  -webkit-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+/* line 73, ../scss/main.scss */
+.login.active .bottom, .active.logged .bottom {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 82, ../scss/main.scss */
+.logged .where-btn {
+  display: block;
+  width: 245px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 16px;
+  color: #fff;
+  margin: 25px auto;
+  background: #380303;
+  border-radius: 5px;
+  text-decoration: none;
+}
+/* line 95, ../scss/main.scss */
+.logged .profile-img img {
+  width: 65px;
+  border-radius: 65px;
+  margin: 15px 0;
+}
+
+/* line 102, ../scss/main.scss */
+.where {
+  position: absolute;
+  top: -150%;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: #a60000;
+}
+/* line 112, ../scss/main.scss */
+.where h2 {
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+  widht: 100%;
+  height: 80px;
+  line-height: 80px;
+}
+/* line 120, ../scss/main.scss */
+.where h3 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+/* line 124, ../scss/main.scss */
+.where ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  text-align: left;
+}
+/* line 131, ../scss/main.scss */
+.where li {
+  padding: 25px;
+  font-size: 15px;
+  border-bottom: 1px solid #838383;
+}
+/* line 137, ../scss/main.scss */
+.where.active {
+  top: 0;
+}
+
+/* line 142, ../scss/main.scss */
+.success {
+  width: 100%;
+  height: 100%;
+  background: white url(../img/bg-success.png) center -140px repeat;
+  background-size: 100%;
+}
+/* line 148, ../scss/main.scss */
+.success p {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+}
