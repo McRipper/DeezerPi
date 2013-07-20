@@ -5,7 +5,7 @@ Deezer on Raspberry PI @Hackitaly
 
 ## Install instruction
 
-bundle
+bundle install
 
 bundle exec thin start
 
@@ -24,3 +24,5 @@ Antonio Ragagnin
 Giuseppe Donato
 Roberto Nocera
 Emiliano Coghetto
+
+## Ideas

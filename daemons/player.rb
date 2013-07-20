@@ -25,9 +25,9 @@ Daemons.run_proc('player', daemon_options) do
 
     link = p.first.link
 
-    puts "http://10.1.8.198:8080/requests/status.xml?command=in_play&input=#{link}"
+    puts link
 
-    RestClient.get("http://10.1.8.198:8080/requests/status.xml?command=in_play&input=#{link}")
+    RestClient.get("http://10.1.9.38:8080/requests/status.xml?command=in_play&input=#{link}")
 
     sleep 30
 
