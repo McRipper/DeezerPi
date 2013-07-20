@@ -20,6 +20,8 @@ GEM
     eventmachine (1.0.3)
     faraday (0.8.7)
       multipart-post (~> 1.1)
+    haml (4.0.3)
+      tilt
     hashie (2.0.5)
     httpauth (0.2.0)
     jwt (0.1.8)
@@ -33,6 +35,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oj (2.0.12)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
@@ -67,9 +70,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  daemons
   dm-core
   dm-migrations
   dm-sqlite-adapter
+  haml
+  multi_json
+  oj
   omniauth
   omniauth-facebook
   racksh

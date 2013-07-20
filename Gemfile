@@ -5,12 +5,19 @@ gem "sinatra", "1.4.3", require: 'sinatra/base'
 
 gem "rest-client"
 
+gem "haml"
+
 gem "omniauth"
 gem "omniauth-facebook"
 
 gem "dm-core"
 gem "dm-sqlite-adapter"
 gem "dm-migrations"
+
+gem "multi_json"
+gem "oj"
+
+gem "daemons"
 
 gem 'thin' # Server
 
