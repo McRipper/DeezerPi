@@ -13,6 +13,7 @@ gem "omniauth-facebook"
 gem "dm-core"
 gem "dm-sqlite-adapter"
 gem "dm-migrations"
+gem "dm-ar-finders"
 
 gem "multi_json"
 gem "oj"

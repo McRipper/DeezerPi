@@ -15,29 +15,21 @@ daemon_options = {
 
 Daemons.run_proc('player', daemon_options) do
 
-  pid = 1
-  first = true
+  Dir.chdir dir
+
+  require "#{dir}/config/environment"
 
   loop do
 
-    if first == true
-      status = false
-      first = false
-    else
-      begin
-        status = Process.kill(0, pid)
-      rescue
-        status = false
-      end
-    end
+    p = Playlist.find_by_sql("SELECT link FROM playlists WHERE _ROWID_ >= (abs(random()) % (SELECT max(_ROWID_) FROM playlists)) LIMIT 1;")
 
-    puts status
+    link = p.first.link
 
-    if status == false
-      pid = fork{ exec 'mpg123','-q', "http://cdn-preview-b.deezer.com/stream/b18965a0efe1a8f312ff415c39397a51-1.mp3" }
-    end
+    puts "http://10.1.8.198:8080/requests/status.xml?command=in_play&input=#{link}"
 
-    sleep 1
+    RestClient.get("http://10.1.8.198:8080/requests/status.xml?command=in_play&input=#{link}")
+
+    sleep 30
 
   end
 

@@ -5,6 +5,8 @@ GEM
     daemons (1.1.9)
     data_objects (0.10.13)
       addressable (~> 2.1)
+    dm-ar-finders (1.2.0)
+      dm-core (~> 1.2.0)
     dm-core (1.2.1)
       addressable (~> 2.3)
     dm-do-adapter (1.2.0)
@@ -71,6 +73,7 @@ PLATFORMS
 
 DEPENDENCIES
   daemons
+  dm-ar-finders
   dm-core
   dm-migrations
   dm-sqlite-adapter
