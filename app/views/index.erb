@@ -21,55 +21,68 @@
             <div class="logged">
                 <img class="logo" src="img/logo.png" alt="Logo" />
                 <div class="bottom">
+
                     <figure class="profile-img">
-                        <img src="img/profile-img.jpg" href="">
+                        <img src="<%= current_user.image %>">
                     </figure>
                     <p>YOUR FAVORITE MUSIC<br>YOUR FAVORITE PLACES</p>
                     <a href="#!/where" class="where-btn">
-                        <span>Where are you Mari Anna?</span>
+                        <span>Where are you <%= current_user.name %></span>
                     </a>
                 </div>
             </div>
             <div class="where">
                 <h2>WHERE ARE YOU?</h2>
                 <ul>
-                    <li>
-                        <h3>H-Farm Serra<br> Good food for beautiful minds</h3>
-                        <p>Via Sile 41, 31056 Roncade (TV)</p>
+                  <li>
+                    <a href="/success">
+                      <h3>H-Farm Serra<br> Good food for beautiful minds</h3>
+                      <p>Via Sile 41, 31056 Roncade (TV)</p>
+                    </a>
                     </li>
                     <li>
+                    <a href="/success">
                         <h3>H-ART</h3>
                         <p>Via Sile 41, 31056 Roncade (TV)</p>
+                        </a>
                     </li>
                     <li>
+                    <a href="/success">
                         <h3>H-CAMP<br> Serra Good food for beautiful minds</h3>
                         <p>Via Sile 41, 31056 Roncade (TV)</p>
+                        </a>
                     </li>
                     <li>
+                    <a href="/success">
                         <h3>H-ART</h3>
                         <p>via Sile 41, 31056 Roncade (TV)</p>
+                        </a>
                     </li>
                     <li>
+                    <a href="/success">
                         <h3>H-CAMP<br> Serra Good food for beautiful minds</h3>
                         <p></p>
+                        </a>
                     </li>
                     <li>
+                    <a href="/success">
                         <h3>H-ART</h3>
                         <p>via Sile 41, 31056 Roncade (TV)</p>
+                        </a>
                     </li>
                     <li>
+                    <a href="/success">
                         <h3>H-CAMP<br> Serra Good food for beautiful minds</h3>
                         <p></p>
+                      </a>
                     </li>
                 </ul>
             </div>
         </div>
-        
 
         <!-- Add your site or application content here -->
 
         <script src="js/vendor/jquery-1.9.1.min.js"></script>
-        
         <script src="js/vendor/underscore.min.js"></script>
         <script src="js/vendor/backbone.min.js"></script>
 

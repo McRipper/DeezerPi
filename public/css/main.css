@@ -159,6 +159,11 @@ h2, h3 {
   font-size: 15px;
   border-bottom: 1px solid #838383;
 }
+.where li a {
+  color: #444;
+  text-decoration: none;
+  display:block;
+}
 /* line 137, ../scss/main.scss */
 .where.active {
   top: 0;

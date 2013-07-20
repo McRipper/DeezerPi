@@ -15,7 +15,7 @@ module App
       end
     end
 
-    use Rack::Session::Cookie
+    use Rack::Session::Cookie, secret: "7898cb07b5dc3ed138840767d743b4aa"
 
     use OmniAuth::Builder do
       provider :facebook, '203597956466980','c85ffc4e033df8623470014c7a3be1d0', scope: "user_likes"
@@ -23,14 +23,13 @@ module App
 
     get '/' do
       if current_user
-        haml :index
+        erb :index
       else
-        haml :login
+        erb :login
       end
     end
 
     get '/auth/:name/callback' do
-
 
       auth = request.env["omniauth.auth"]
       user = User.first_or_create({ :uid => auth["uid"]}, {
@@ -42,9 +41,11 @@ module App
         :created_at => Time.now })
       session[:user_id] = user.id
 
-
-      # retrive songs
-
+      puts "Facebook:"
+      puts facebook(user)
+      puts "\n"
+      puts "Deezer:"
+      puts deezer(user)
 
       redirect '/'
     end
@@ -52,11 +53,9 @@ module App
 
     # Facebook
     #
-    get '/songs' do
+    def facebook(user)
 
-      user = current_user
-
-      redirect "/" if user.nil?
+      return if user.nil?
 
       data = RestClient.get("https://graph.facebook.com/#{user.uid}/music?access_token=#{user.token}")
 
@@ -68,31 +67,35 @@ module App
 
       return results["data"].size
 
-      #redirect "/"
-
     end
 
     # Deezer
     #
-    get '/play' do
+    def deezer(user)
 
-      redirect "/" if current_user.nil?
+      return if user.nil?
 
-      artists = Artist.all(user_id: current_user.id)
-
-      return "No artists found" if artists.empty?
-
+      artists = Artist.all(user_id: user.id)
       artists.each do |a|
         data = RestClient.get("http://api.deezer.com/2.0/search?q=#{CGI.escape(a.name)}")
         results = MultiJson.load(data.body)
         if (r = results["data"]).any?
           r.each do |s|
-            Playlist.first_or_create({ user_id: current_user.id, link: s["preview"] })
+            Playlist.first_or_create({ user_id: user.id, link: s["preview"] }, {
+              title: s["title"],
+              artist_name: s["artist"]["name"],
+              album_title: s["album"]["title"],
+              album_cover: s["artist"]["cover"],
+              duration: s["duration"]
+            })
           end
         end
       end
-
       return "OK!"
+    end
+
+    get '/success' do
+      erb :success
     end
 
     get '/auth/failure' do
@@ -103,6 +106,21 @@ module App
     get '/logout' do
       session[:user_id] = nil
       redirect "/"
+    end
+
+    get '/playing' do
+      p = Playlist.first(playing: true)
+      if p
+        {
+          title: p.title,
+          artist_name: p.artist_name,
+          album_title: p.album_title,
+          album_cover: p.album_cover,
+          duration: p.duration
+        }.to_json
+      else
+        {}.to_json
+      end
     end
 
   end

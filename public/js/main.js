@@ -6,8 +6,10 @@
 
     App.Routers.Main = Backbone.Router.extend({
         routes: {
-            '': 'defaultAction',
-            '!/where': 'whereAction'
+          '': 'defaultAction',
+          '_=_': 'defaultAction',
+          '!/where': 'whereAction'
+
         },
         initialize: function() {
             $('#layout').height(window.innerHeight+70);
@@ -32,14 +34,12 @@
     App.Views.Main = Backbone.View.extend({
         el:'.login,.logged',
         initialize: function() {
-             
         },
         render: function() {
-            this.$el.addClass('active');
-
+          this.$el.addClass('active');
         },
         exit: function() {
-            this.$el.removeClass('active');
+          this.$el.removeClass('active');
         }
     });
 

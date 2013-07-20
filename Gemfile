@@ -15,6 +15,9 @@ gem "dm-sqlite-adapter"
 gem "dm-migrations"
 gem "dm-ar-finders"
 
+gem "rabl"
+
+gem "json"
 gem "multi_json"
 gem "oj"
 
@@ -25,4 +28,5 @@ gem 'thin' # Server
 group :development do
   gem "shotgun"
   gem "racksh"
+  gem "pry"
 end
