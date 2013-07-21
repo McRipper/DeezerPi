@@ -15,17 +15,47 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="js/vendor/jquery-1.9.1.min.js"></script>
     </head>
     <body>
-         <div id="layout">
-            <div class="success">
-                <p><strong>ENJOY</strong><br>YOUR FAVORITE<br> MUSIC!<p>
-            </div>    
+
+    <script>
+      function loadSong(){
+        $.ajax({
+          url: "/playing",
+          beforeSend: function(){
+            $("#playing").html("<span>Loading next track...</span>");
+          },
+          success: function(data){
+            console.log(data);
+            $(".success p").hide();
+            $("#playing").show();
+            $("#playing").html("<span>"+data.title+"</span>"+
+                               "<span>"+data.artist_name+"</span>"+
+                               "<span>"+data.album_title+"</span>"
+                               //"<span><img src='"+data.album_cover+"'/></span>"
+                              );
+          }
+        });
+      }
+      $(function(){
+        window.setTimeout(loadSong, 4000);
+        var t = window.setInterval(loadSong, 30000);
+      });
+    </script>
+
+      <div id="layout">
+          <div id="playing"></div>
+          <div class="success">
+            <p><strong>ENJOY</strong><br>YOUR FAVORITE<br> MUSIC!
+            </br></br>
+            Loading...
+            <p>
+          </div>    
         </div>
 
         <!-- Add your site or application content here -->
 
-        <script src="js/vendor/jquery-1.9.1.min.js"></script>
         
         <script src="js/vendor/underscore.min.js"></script>
         <script src="js/vendor/backbone.min.js"></script>

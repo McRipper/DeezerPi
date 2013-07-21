@@ -9,6 +9,11 @@ Bundler.require(:default, $env.to_sym)
 
 Rabl.register!
 
+Rabl.configure do |config|
+  config.include_json_root = false
+  config.enable_json_callbacks = true
+end
+
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/database.db")
 
 SCOPE = 'email,read_stream'

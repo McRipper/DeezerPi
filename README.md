@@ -27,11 +27,11 @@ with VLC started from commanline with http interface.
 
 ## Proudly developed by:
 
-Emanuele Barban
-Robert Casanova
-Antonio Ragagnin
-Giuseppe Donato
-Roberto Nocera
-Emiliano Coghetto
+* Emanuele Barban
+* Robert Casanova
+* Antonio Ragagnin
+* Giuseppe Donato
+* Roberto Nocera
+* Emiliano Coghetto
 
 ## Ideas
