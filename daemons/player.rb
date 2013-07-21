@@ -23,10 +23,13 @@ Daemons.run_proc('player', daemon_options) do
 
     p = Playlist.find_by_sql("SELECT id, link FROM playlists WHERE _ROWID_ >= (abs(random()) % (SELECT max(_ROWID_) FROM playlists)) LIMIT 1;").first
 
+    puts p.link
+
     begin
-      RestClient.get("http://10.1.9.38:8080/requests/status.xml?command=in_play&input=#{link}")
-    rescue
+      RestClient.get("http://10.1.8.198:8080/requests/status.xml?command=in_play&input=#{p.link}")
+    rescue => e
       puts "Error reaching the music server"
+      puts e
     end
 
     Playlist.set_playing(p.id)

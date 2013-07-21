@@ -33,5 +33,6 @@ with VLC started from commanline with http interface.
 * Giuseppe Donato
 * Roberto Nocera
 * Emiliano Coghetto
+* Franco Pisto
 
 ## Ideas
