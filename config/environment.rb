@@ -16,8 +16,6 @@ end
 
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/database.db")
 
-SCOPE = 'email,read_stream'
-
 Dir[File.dirname(__FILE__) + "/../config/initializers/*.rb"].each {|file| require file }
 Dir[File.dirname(__FILE__) + "/../app/model/*.rb"].each {|file| require file }
 Dir[File.dirname(__FILE__) + "/../lib/*.rb"].each {|file| require file }

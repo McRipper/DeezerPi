@@ -109,7 +109,6 @@ module App
     end
 
     get '/playing' do
-
       content_type 'application/json', :charset => 'utf-8'
 
       p = Playlist.first(playing: true)
